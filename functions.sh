@@ -18,11 +18,12 @@ generate_log_file () {
 }
 
 generate_html_file () {
-    if [ ! -f 'index.html' ]; then
-        $(touch index.html)
+    HTML_PATH='/var/www/html'
+    if [ ! -f '${HTML_PATH}/index.html' ]; then
+        $(touch ${HTML_PATH}/index.html)
     fi
 
-    cat > index.html << EOF
+    cat > ${HTML_PATH}/index.html << EOF
 <!DOCTYPE html>
 <html>
   <head>
@@ -66,12 +67,12 @@ generate_html_file () {
                 <li>RAM utilizada em Kilobytes: ${RSS_PROCESS_USES_MORE_RAM}KB</li>
               </ul>
 
-            <p><strong>Hostname:</strong></p>
+            <p><strong>Partições:</strong></p>
               <ul>
                 <li>${PARTITIONS}</li>
               </ul>
 
-            <p><strong>Hostname:</strong></p>
+            <p><strong>Interfaces de rede:</strong></p>
               <ul>
                 <li>${INTERFACES}</li>
               </ul>
