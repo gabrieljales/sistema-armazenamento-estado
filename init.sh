@@ -10,7 +10,7 @@ echo "Collecting data..."
 echo "Data collected!"
 
 echo "Creating log file..."
-generate_log_file "$CURRENT_TIME" "$HOST_NAME" "$CURRENT_USED_RAM" "$CURRENT_FREE_RAM" "$PROCESS_USES_MORE_RAM" "$PARTITIONS" "$INTERFACES"
+generate_log_file "$CURRENT_TIME" "$HOST_NAME" "$CURRENT_USED_RAM" "$CURRENT_FREE_RAM" "$PID_PROCESS_USES_MORE_RAM" "$NAME_PROCESS_USES_MORE_RAM" "$PERCENT_PROCESS_USES_MORE_RAM" "$RSS_PROCESS_USES_MORE_RAM" "$PARTITIONS" "$INTERFACES"
 echo "Log file created!!"
 
 echo "Creating HTML file..."
