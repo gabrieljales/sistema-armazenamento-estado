@@ -41,6 +41,46 @@ generate_html_file () {
       </p>
     </div>
   </section>
+
+  <section class="section">
+    <div class="content">
+
+      <article class="message is-dark">
+        <div class="message-header">
+          <p>Data e horário da coleta: ${CURRENT_TIME}</p>
+        </div>
+        <div class="message-body">
+          <div class="content">
+
+            <p><strong>Hostname:</strong> ${HOST_NAME}</p>
+
+            <p><strong>Total de memória RAM usada:</strong> ${CURRENT_USED_RAM}</p>
+
+            <p><strong>Total de memória RAM disponível:</strong> ${CURRENT_FREE_RAM}</p>
+
+            <p><strong>Processo que mais utiliza RAM:</strong></p>
+              <ul>
+                <li>PID: ${PID_PROCESS_USES_MORE_RAM}</li>
+                <li>Nome: ${NAME_PROCESS_USES_MORE_RAM}</li>
+                <li>Percentual de RAM utilizada: ${PERCENT_PROCESS_USES_MORE_RAM}%</li>
+                <li>RAM utilizada em Kilobytes: ${RSS_PROCESS_USES_MORE_RAM}KB</li>
+              </ul>
+
+            <p><strong>Hostname:</strong></p>
+              <ul>
+                <li>${PARTITIONS}</li>
+              </ul>
+
+            <p><strong>Hostname:</strong></p>
+              <ul>
+                <li>${INTERFACES}</li>
+              </ul>
+         </div>
+       </div>
+      </article>
+
+    </div>
+  </section>
   </body>
 </html>
 EOF
