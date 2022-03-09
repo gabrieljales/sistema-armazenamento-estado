@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# cd para pasta do script, para não dar problema com o cron
+# cd para pasta do script, para não dar problema com o cron (referência para leitura abaixo)
+# https://unix.stackexchange.com/questions/38951/what-is-the-working-directory-when-cron-executes-a-job
 cd "$(dirname "$0")" 
 
 CURRENT_PATH=$(pwd)
