@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")" # cd para pasta do script, para não dar problema com o cron
+# cd para pasta do script, para não dar problema com o cron
+cd "$(dirname "$0")" 
 
 CURRENT_PATH=$(pwd)
 
