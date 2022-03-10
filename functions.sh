@@ -13,7 +13,7 @@ create_cron_job () {
     CURRENT_PATH=$(pwd)
     echo "Creating Cron job..."
     crontab -l > tempfile
-    echo "*/2 * * * * /bin/bash ${CURRENT_PATH}/init.sh > ${CURRENT_PATH}/cron.out 2>&1" >> tempfile
+    echo "*/2 * * * * /bin/bash ${CURRENT_PATH}/init.sh >> ${CURRENT_PATH}/cron.out 2>&1" > tempfile
     crontab tempfile
     rm tempfile
     echo "Cron job created!!"
