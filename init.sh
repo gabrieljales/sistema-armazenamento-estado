@@ -17,6 +17,7 @@ echo "Data collected!"
 
 generate_log_file "$CURRENT_TIME" "$HOST_NAME" "$CURRENT_USED_RAM" "$CURRENT_FREE_RAM" "$PID_PROCESS_USES_MORE_RAM" "$NAME_PROCESS_USES_MORE_RAM" "$PERCENT_PROCESS_USES_MORE_RAM" "$RSS_PROCESS_USES_MORE_RAM" "$PARTITIONS" "$INTERFACES"
 
+generate_html_body
 generate_html_file
 
 create_cron_job
