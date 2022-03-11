@@ -28,43 +28,21 @@ generate_log_file () {
     echo "Log file created!!"
 }
 
-generate_html_file () {
-    HTML_PATH='/var/www/html'
-    if [ ! -f '${HTML_PATH}/index.html' ]; then
-        $(touch ${HTML_PATH}/index.html)
+generate_html_body () {
+    CURRENT_PATH=$(pwd)
+        if [ ! -f '${CURRENT_PATH}/body.html' ]; then
+        $(touch ${CURRENT_PATH}/body.html)
     fi
 
-    echo "Creating HTML file..."
+  echo "<section class='section'>
+    <div class='content'>
 
-    cat > ${HTML_PATH}/index.html << EOF
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-    <title>Server info</title>
-  </head>
-  <body>
-  <section class="hero is-info">
-    <div class="hero-body">
-      <h1 class="title">
-        Relatório
-      </h1>
-      <p class="subtitle">
-        <strong>Olá!</strong> Segue abaixo o relatório da última coleta de dados, realizada 2 minutos atrás:
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="content">
-
-      <article class="message is-info">
-        <div class="message-header">
+      <article class='message is-info'>
+        <div class='message-header'>
           <p>Data e horário da coleta: ${CURRENT_TIME}</p>
         </div>
-        <div class="message-body">
-          <div class="content">
+        <div class='message-body'>
+          <div class='content'>
 
             <p><strong>Hostname:</strong> ${HOST_NAME}</p>
 
@@ -94,7 +72,38 @@ generate_html_file () {
       </article>
 
     </div>
+  </section>" >> body.html
+}
+
+generate_html_file () {
+    CURRENT_PATH=$(pwd)
+    HTML_PATH='/var/www/html'
+    if [ ! -f '${HTML_PATH}/index.html' ]; then
+        $(touch ${HTML_PATH}/index.html)
+    fi
+
+    echo "Creating HTML file..."
+
+    cat > ${HTML_PATH}/index.html << EOF
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <title>Server info</title>
+  </head>
+  <body>
+  <section class="hero is-info">
+    <div class="hero-body">
+      <h1 class="title">
+        Relatório
+      </h1>
+      <p class="subtitle">
+        <strong>Olá!</strong> Segue abaixo o relatório das últimas coletas de dados (atualiza a cada 2 minutos):
+      </p>
+    </div>
   </section>
+  $(cat ${CURRENT_PATH}/body.html)
   </body>
 </html>
 EOF
