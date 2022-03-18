@@ -1,5 +1,7 @@
 # Sobre o projeto
 
+Atividade avaliativa 01 da disciplina optativa "Servidores de redes". Para mais informações sobre a atividade, verifique o tópico seguinte "[Requisitos da atividade](#requisitos-da-atividade)".
+
 ## Requisitos da atividade:
 
 <details>
@@ -25,9 +27,13 @@ Configure o site principal para exibir uma página que deve estar disponível ap
 
 [ ] Das 00h às 6h59 o site principal deve exibir uma página informando que o site está em manutenção.
 
-## Todas as soluções devem ser desenvolvidas utilizando shell scripts. Envie todos os scripts desenvolvidos e as instruções de utilização e instalação.</details>
+[x] Todas as soluções devem ser desenvolvidas utilizando shell scripts. Envie todos os scripts desenvolvidos e as instruções de utilização e instalação.</details>
 
 ---
+
+## Demonstração do resultado final
+
+## ![](demo-gif.gif)
 
 ## Instruções de utilização:
 
@@ -97,14 +103,14 @@ As informações do site serão atualizadas a cada 2 minutos.
 
 ### Sobre os arquivos
 
-- init.sh: Arquivo principal, responsável por chamar todos os outros scripts.
-- info_list.sh: Responsável por coletar e armazenar as informações da máquina.
-- functions.sh: Contém toda a lógica do projeto. Cada uma das funções foram detalhadas na seção abaixo.
+- **init.sh:** Arquivo principal, responsável por chamar todos os outros scripts.
+- **info_list.sh:** Responsável por coletar e armazenar as informações da máquina.
+- **functions.sh:** Contém toda a lógica do projeto. Cada uma das funções foram detalhadas na seção abaixo.
 
 ### Funções
 
-- check_root: Verifica se o script foi executado como usuário root.
-- create_cron_job: Responsável por criar o cronjob que executa o arquivo `init.sh` a cada 2 minutos.
-- generate_log_file: Gera um arquivo de log contendo as informações extraídas.
-- generate_html_body: Gera o conteúdo principal do site com as informações obtidas no script `info_list.sh`, o arquivo html gerado posteriormente será inserido em `index.html`.
-- generate_html_file: Cria a página principal do site com as informações geradas pela função `generate_html_body`.
+- **check_root:** Verifica se o script foi executado como usuário root.
+- **create_cron_job:** Responsável por criar o cronjob que executa o arquivo `init.sh` a cada 2 minutos.
+- **generate_log_file:** Gera um arquivo de log contendo as informações extraídas.
+- **generate_html_body:** Gera o conteúdo principal do site com as informações obtidas no script `info_list.sh`, o arquivo html gerado posteriormente será inserido em `index.html`.
+- **generate_html_file:** Cria a página principal do site com as informações geradas pela função `generate_html_body`.
